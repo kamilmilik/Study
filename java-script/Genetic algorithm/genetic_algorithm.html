@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<head>
+    <title>Page Title</title>
+    <style>
+        .text-center {
+            text-align: center !important;
+        }
+
+        .btn-group {
+            margin: 0 auto;
+            text-align: center !important;
+            display: block;
+        }
+
+        #svgMain {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        body {
+            background-color: #4d4f51;
+        }
+    </style>
+</head>
+<body>
+
+<h1 class="bg-warning text-center">Genetic Algorithm</h1>
+<a class="d-block p-3 text-center text-white bg-dark b4b" id="information">Populacja: Wynik: </a>
+<header class="navbar navbar-light navbar-toggleable-md bd-navbar">
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-success" onclick="generic()">Generuj/Stop</button>
+    </div>
+</header>
+<svg id="svgMain" width="1920" height="1080" display="block">
+
+</svg>
+
+<script>
+    let colorsArray = [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330];
+    let index = 0;
+
+    const width = 8;
+    const height = 14;
+    const rectanglesInPopulationCount = 40;
+    const POPULATION_SIZE = 100;
+    const startX = width * rectanglesInPopulationCount;
+    const startY = height * rectanglesInPopulationCount;
+    const distanceBetweenPopulations = 2 * (width * rectanglesInPopulationCount) + 100;
+    const maxYLength = startY + 2 * height * rectanglesInPopulationCount;
+    const maxXLength = startX + 2 * width * rectanglesInPopulationCount;
+
+    let populations = [];
+    let generationNumber = 0;
+    let isDone = false;
+
+    let allSmallRectangles = [];
+
+    let scene = d3.select("svg");
+    scene.attr("width", maxXLength).attr("height", maxYLength);
+
+    class Population {
+        constructor(rectangles, rate) {
+            this.rectangles = rectangles;
+            this.rate = 0
+        }
+
+        getRoot() {
+            let rectToReturn = [];
+            this.rectangles.forEach(rect => {
+                if (rect.production === 0) {
+                    rectToReturn = rect;
+                }
+            });
+            return rectToReturn;
+        }
+    }
+
+    // Production
+    // Root = 0
+    // Up left = 1
+    // Up right = 2
+    // Down right = 3
+    // Down left = 4
+    // [1][2]
+    // [4][3]
+    class Rectangle {
+        constructor(smallRectangles, production, color) {
+            this.smallRectangles = smallRectangles;
+            this.production = production;
+            this.color = color;
+        }
+    }
+
+    class SmallRectangle {
+        constructor(id, type, x, y, color) {
+            this.id = id;
+            this.type = type;
+            this.x = x;
+            this.y = y;
+            this.color = color;
+        }
+    }
+
+    initPopulation();
+
+    function initPopulation() {
+        generationNumber++;
+        let distance = distanceBetweenPopulations;
+        for (let i = 0; i < POPULATION_SIZE; i++) {
+            let population = new Population();
+            let smallRectangles = initFirstRectangle(startX + distance, startY);
+            let rectangles = [new Rectangle(smallRectangles, 0, smallRectangles[0].color)];
+            rectangles = drawPopulation(rectangles, smallRectangles);
+            population.rectangles = rectangles;
+            population.rate = rate(population);
+            populations.push(population);
+            distance += distanceBetweenPopulations;
+        }
+        populations.sort((population1, population2) => population2.rate - population1.rate);
+        preparePopulationToDraw(populations[0]);
+        drawRectangles(allSmallRectangles);
+        madeInformation(populations[0])
+    }
+
+    function preparePopulationToDraw(population) {
+        let minX = findMinX(population);
+        let minY = findMinY(population);
+        // let distanceX = minX - startX;
+        // let distanceY = minY - startY;
+        let distanceX = minX - startX;
+        let distanceY = minY - 50;
+        population.rectangles.forEach(rect => {
+            rect.smallRectangles.forEach(smallRect => {
+                smallRect.x = smallRect.x - distanceX;
+                smallRect.y = smallRect.y - distanceY;
+                allSmallRectangles.push(smallRect);
+            });
+        });
+    }
+
+    function initFirstRectangle(startX, startY) {// Return lista malych prostokatow ktore tworza jeden duzy
+        let color = generate_random_color();
+        return [
+            new SmallRectangle(index, 1, startX, startY, color),
+            new SmallRectangle(++index, 2, startX + width, startY, color),
+            new SmallRectangle(++index, 3, startX + width, startY + height, color),
+            new SmallRectangle(++index, 4, startX, startY + height, color)
+        ];
+    }
+
+    function drawPopulation(rectangles, smallRectangles) {
+        let counter = 1;
+        let rectanglesCopy = rectangles.slice(); // Kopia zeby nie dzialac na referencji
+        let smallRectanglesCopy = smallRectangles.slice(); // Kopia zeby nie dzialac na referencji
+        let rectanglesToReturn = [];
+        while (true) {
+            let randomIndex = Math.floor(Math.random() * smallRectanglesCopy.length);
+            let element = smallRectanglesCopy[randomIndex];
+            if (element.type !== 0) {
+                let drawOnePop = drawOnePopulation(rectanglesCopy, smallRectanglesCopy, element);
+                if (!drawOnePop) {
+                    rectanglesToReturn = rectanglesCopy;
+                    counter++;
+                }
+            }
+            if (counter === rectanglesInPopulationCount) {
+                break;
+            }
+        }
+        return rectanglesToReturn;
+    }
+
+    function checkIfElementExist(x, y, smallRectangles) {
+        let exist = false;
+        smallRectangles.forEach(el => {
+            if (el.x === x && el.y === y) {
+                exist = true
+            }
+        });
+        return exist
+    }
+
+    // My rectangle type
+    // [1][2]
+    // [4][3]
+    function drawOnePopulation(rectangles, smallRectangles, el) {
+        let exist = false;
+        let color = generate_random_color();
+        if (el.type === 1) {
+            if (checkIfElementExist(el.x - 2 * width, el.y - 2 * height, smallRectangles)) {
+                exist = true
+            } else {
+                smallRectangles.push(new SmallRectangle(++index, 1, el.x - 2 * width, el.y - 2 * height, color));
+                smallRectangles.push(new SmallRectangle(++index, 2, el.x - width, el.y - 2 * height, color));
+                smallRectangles.push(new SmallRectangle(++index, 3, el.x - width, el.y - height, color));
+                smallRectangles.push(new SmallRectangle(++index, 4, el.x - 2 * width, el.y - height, color));
+            }
+        }
+
+        if (el.type === 2) {
+            if (checkIfElementExist(el.x + width, el.y - 2 * height, smallRectangles)) {
+                exist = true
+            } else {
+                smallRectangles.push(new SmallRectangle(++index, 1, el.x + width, el.y - 2 * height, color));
+                smallRectangles.push(new SmallRectangle(++index, 2, el.x + 2 * width, el.y - 2 * height, color));
+                smallRectangles.push(new SmallRectangle(++index, 3, el.x + 2 * width, el.y - height, color));
+                smallRectangles.push(new SmallRectangle(++index, 4, el.x + width, el.y - height, color));
+            }
+        }
+
+        if (el.type === 3) {
+            if (checkIfElementExist(el.x + width, el.y + height, smallRectangles)) {
+                exist = true
+            } else {
+                smallRectangles.push(new SmallRectangle(++index, 1, el.x + width, el.y + height, color));
+                smallRectangles.push(new SmallRectangle(++index, 2, el.x + 2 * width, el.y + height, color));
+                smallRectangles.push(new SmallRectangle(++index, 3, el.x + 2 * width, el.y + 2 * height, color));
+                smallRectangles.push(new SmallRectangle(++index, 4, el.x + width, el.y + 2 * height, color));
+            }
+        }
+
+        if (el.type === 4) {
+            if (checkIfElementExist(el.x - 2 * width, el.y + height, smallRectangles)) {
+                exist = true
+            } else {
+                smallRectangles.push(new SmallRectangle(++index, 1, el.x - 2 * width, el.y + height, color));
+                smallRectangles.push(new SmallRectangle(++index, 2, el.x - width, el.y + height, color));
+                smallRectangles.push(new SmallRectangle(++index, 3, el.x - width, el.y + 2 * height, color));
+                smallRectangles.push(new SmallRectangle(++index, 4, el.x - 2 * width, el.y + 2 * height, color));
+            }
+        }
+
+        // Wez 4 ostatnie elementy z listy malych prostokatow i dodaj do listy duzych prostokatow
+        if (!exist) {
+            let tmpSmallRectangles = [];
+            let i = smallRectangles.length;
+            smallRectangles.forEach(el => {
+                if (i > smallRectangles.length - 4) {
+                    i--;
+                    tmpSmallRectangles.push(smallRectangles[i]);
+                }
+            });
+            rectangles.push(new Rectangle(tmpSmallRectangles, el.type, color));
+        }
+        return exist;
+    }
+
+    function madeChild() {
+        // while (!isDone) {
+        generationNumber++;
+        let newPopulations = [];
+        populations.sort((population1, population2) => population2.rate - population1.rate);
+        if (populations[0].rate === rectanglesInPopulationCount) {
+            isDone = true;
+            flag = false;
+        }
+        const countOfBestPopulations = (10 * POPULATION_SIZE) / 100;
+        for (let i = 0; i < countOfBestPopulations; i++) {
+            newPopulations.push(populations[i]); // 10%  najlepszych z pierwszego pokolenia zostaje i idzie jako nowa generacja
+        }
+        const newGenerationCount = (90 * POPULATION_SIZE) / 100; // 90 %, czyli 10% to najlepsze osobniki ze starego pokolenia, reszta to dzieci
+        for (let i = 0; i < newGenerationCount; i++) {
+            // 50% najsilniejszej populacji, bedzie tworzyc potomkow
+            let randomHusbandIndex = randomNum(0, POPULATION_SIZE / 2); // liczba do losowania rodzicow
+            // Husband
+            let randomPopulationHusband = populations[randomHusbandIndex];
+            // Wife
+            let randomWifeIndex = randomNum(0, POPULATION_SIZE / 2);
+            while (randomHusbandIndex === randomWifeIndex) { // Zeby przypadkiem randomWifeIndex nie był taki jak randomHusbandIndex
+                randomWifeIndex = randomNum(0, POPULATION_SIZE / 2)
+            }
+            let randomPopulationWife = populations[randomWifeIndex];
+
+            let childPopulation = mate(randomPopulationHusband, randomPopulationWife);
+            newPopulations.push(childPopulation);
+        }
+
+        newPopulations = ratePopulations(newPopulations);
+        populations = newPopulations;
+
+        populations.sort((population1, population2) => population2.rate - population1.rate);
+
+        allSmallRectangles = [];
+        let population = newPopulations[0]; // wez najlepsza populacje
+        preparePopulationToDraw(population);
+
+        drawRectangles(allSmallRectangles);
+
+        madeInformation(population)
+        // }
+    }
+
+    function madeInformation(population) {
+        let div = document.getElementById("information");
+        div.textContent = "Rozmiar populacji: " + population.rectangles.length + " | Generacja: " + generationNumber + " | Wynik: " + population.rate;
+    }
+
+    function mate(parent1Source, parent2Source) {
+        let rect1 = clone(parent1Source.rectangles);
+        let rate1 = clone(parent1Source.rate);
+        let parent1 = new Population(rect1, rate1);
+        let rect2 = clone(parent2Source.rectangles);
+        let rate2 = clone(parent2Source.rate);
+        let parent2 = new Population(rect2, rate2);
+
+        let childRectangles = [];
+        for (let i = 0; i < parent1.rectangles.length; i++) {
+            let randomNumber = randomNum(0, 100) / 100;
+            if (randomNumber < 0.45) {// if prob is less than 0.45, insert gene from parent 1
+                if (childRectangles.length === 0) {// Dodajemy roota
+                    let rootRect = parent1.getRoot();
+                    childRectangles.push(rootRect);
+                } else {
+                    let childRect = parent1.rectangles[i];
+                    let rectToAddChild = childRectangles[childRectangles.length - 1]; // wez ostatnio dodany
+                    childRect = joinToGivenRectangle(childRect, rectToAddChild);
+                    childRect = ifExistAction(childRectangles, childRect, rectToAddChild);
+                    childRectangles.push(childRect);
+                }
+            } else if (randomNumber < 0.90) {// if prob is between 0.45 and 0.90, insert gene from parent 2
+                if (childRectangles.length === 0) {// Dodajemy roota
+                    let rootRect = parent2.getRoot();
+                    childRectangles.push(rootRect);
+                } else {
+                    let childRect = parent2.rectangles[i];
+                    let rectToAddChild = childRectangles[childRectangles.length - 1]; // wez ostatnio dodany
+                    childRect = joinToGivenRectangle(childRect, rectToAddChild);
+                    childRect = ifExistAction(childRectangles, childRect, rectToAddChild);
+                    childRectangles.push(childRect);
+                }
+            } else {// otherwise insert random gene(mutate), for maintaining diversity
+                let random = randomNum(0, 50);
+                let newColor = generate_random_color();
+                if (childRectangles.length === 0) {// Dodajemy roota
+                    let rootRect;
+                    if (random < 25) { // Losujemy czy poddajemy mutacji z parent1 czy z parent2
+                        rootRect = parent1.getRoot();
+                    } else {
+                        rootRect = parent2.getRoot();
+                    }
+                    // Zmiana koloru wylosowanego rect
+                    changeColor(rootRect, newColor);
+                    childRectangles.push(rootRect);
+                } else { // Nie dodajemy roota
+                    let childRect;
+                    if (random < 25) { // Losujemy czy poddajemy mutacji z parent1 czy z parent2
+                        childRect = parent1.rectangles[i];
+                    } else {
+                        childRect = parent2.rectangles[i];
+                    }
+                    // Zmiana koloru wylosowanego rect
+                    changeColor(childRect, newColor);
+                    let rectToAddChild = childRectangles[childRectangles.length - 1]; // wez ostatnio dodany
+                    childRect = joinToGivenRectangle(childRect, rectToAddChild);
+                    childRect = ifExistAction(childRectangles, childRect, rectToAddChild);
+                    childRectangles.push(childRect);
+                }
+            }
+        }
+        return new Population(childRectangles)
+    }
+
+    function ifExistAction(childRectangles, childRect, rectToAddChild) {
+        childRect = joinToGivenRectangle(childRect, rectToAddChild);
+        let isExist = isRectangleExist(childRectangles, childRect);
+        if (isExist) {
+            rectToAddChild = childRectangles[Math.floor(Math.random() * childRectangles.length)]
+            childRect = ifExistAction(childRectangles, childRect, rectToAddChild);
+        }
+        return childRect;
+    }
+
+    function joinToGivenRectangle(childToJoinSource, givenRectangleSource) {
+        let index = 0;
+        //childToJoinSource.smallRectangles.map(a => Object.assign({}, a))
+        let smallRect1 = clone(childToJoinSource.smallRectangles);
+        let prod1 = clone(childToJoinSource.production);
+        let smallRect2 = clone(givenRectangleSource.smallRectangles);
+        let prod2 = clone(givenRectangleSource.production);
+        let childToJoin = new Rectangle(smallRect1, prod1);
+        let givenRectangle = new Rectangle(smallRect2, prod2);
+
+        // Posortujmy obie tablice aby taka sama byla kolejnosc w nich
+        givenRectangle.smallRectangles.sort((smallRect, smallRect2) => (smallRect2.x - smallRect.x || smallRect2.y - smallRect.y));
+        childToJoin.smallRectangles.sort((smallRect, smallRect2) => (smallRect2.x - smallRect.x || smallRect2.y - smallRect.y));
+        switch (childToJoin.production) {
+            case 1:
+                childToJoin.smallRectangles.forEach(smallRect => {
+                    let smallGivenRect = givenRectangle.smallRectangles[index];
+                    smallRect.x = smallGivenRect.x - 2 * width; // Przesunie poprzedni element gora lewo, i tak kazdy maly rect
+                    smallRect.y = smallGivenRect.y - 2 * height;
+                    index++;
+                });
+                break;
+            case 2:
+                childToJoin.smallRectangles.forEach(smallRect => {
+                    let smallGivenRect = givenRectangle.smallRectangles[index];
+                    smallRect.x = smallGivenRect.x + 2 * width;
+                    smallRect.y = smallGivenRect.y - 2 * height;
+                    index++;
+                });
+                break;
+            case 3:
+                childToJoin.smallRectangles.forEach(smallRect => {
+                    let smallGivenRect = givenRectangle.smallRectangles[index];
+                    smallRect.x = smallGivenRect.x + 2 * width;
+                    smallRect.y = smallGivenRect.y + 2 * height;
+                    index++;
+                });
+                break;
+            case 4:
+                childToJoin.smallRectangles.forEach(smallRect => {
+                    let smallGivenRect = givenRectangle.smallRectangles[index];
+                    smallRect.x = smallGivenRect.x - 2 * width;
+                    smallRect.y = smallGivenRect.y + 2 * height;
+                    index++;
+                });
+                break;
+            default:
+                break;
+        }
+        childToJoin.color = childToJoin.smallRectangles[0].color;
+        return childToJoin;
+    }
+
+    function findMinX(population) {
+        let minX = Number.MAX_VALUE;
+        population.rectangles.forEach(rectangle => {
+            rectangle.smallRectangles.forEach(smallRect => {
+                if (smallRect.x < minX) {
+                    minX = smallRect.x;
+                }
+            })
+        });
+        return minX;
+    }
+
+    function findMinY(population) {
+        let minY = Number.MAX_VALUE;
+        population.rectangles.forEach(rectangle => {
+            rectangle.smallRectangles.forEach(smallRect => {
+                if (smallRect.y < minY) {
+                    minY = smallRect.y;
+                }
+            })
+        });
+        return minY;
+    }
+
+
+    function isRectangleExist(rectangles, rectangle) {
+        let isExist = false;
+        rectangles.forEach(rect => {
+            rect.smallRectangles.forEach(smallRect1 => {
+                rectangle.smallRectangles.forEach(smallRect => {
+                    if (smallRect.x === smallRect1.x && smallRect.y === smallRect1.y) {
+                        isExist = true;
+                    }
+                });
+            });
+        });
+        return isExist;
+    }
+
+    function drawRectangles(smallRectangles) {
+        scene.selectAll("rect").remove();
+        scene.selectAll("text").remove();
+
+        let node = scene
+            .selectAll(".rect")
+            .data(smallRectangles);
+
+        node
+            .enter()
+            .append("rect")
+            .attr("x", function (d) {
+                return d.x
+            })
+            .attr("y", function (d) {
+                return d.y
+            })
+            .attr("width", function (d) {
+                return width
+            })
+            .attr("height", function (d) {
+                return height
+            })
+            .attr("fill", function (d) {
+                return "hsl(" + d.color + ", 100%, 40%)"
+            });
+
+        node.exit().remove();
+
+    }
+
+    let flag = false;
+    d3.interval(function () { // To co 1000 mil uruchamia podana metode
+        if (flag) {
+            madeChild()
+        }
+    }, 100);
+
+    function generic() {
+        flag = !flag;
+    }
+
+    function generate_random_color() {
+        return colorsArray[Math.floor(Math.random() * colorsArray.length)];
+    }
+
+    function rate(population) {
+        let occurrences = {};
+        for (let i = 0, j = population.rectangles.length; i < j; i++) {
+            occurrences[population.rectangles[i].color] = (occurrences[population.rectangles[i].color] || 0) + 1;
+        }
+        let maxOccurrence = 0;
+        for (let key in occurrences) {
+            if (occurrences.hasOwnProperty(key)) {
+                let value = occurrences[key];
+                if (value > maxOccurrence) {
+                    maxOccurrence = value;
+                }
+            }
+        }
+        return maxOccurrence;
+    }
+
+    function ratePopulations(populations) {
+        populations.forEach(population => {
+            population.rate = rate(population);
+        });
+        return populations;
+    }
+
+    function changeColor(rectangle, newColor) {
+        rectangle.smallRectangles.forEach(smallRect => {
+            smallRect.color = newColor;
+        });
+        rectangle.color = newColor;
+        return rectangle;
+    }
+
+    // Function to generate random numbers in given range
+    function randomNum(start, end) {
+        let range = (end - start) + 1;
+        return start + Math.floor(Math.random() * range);
+    }
+
+    function clone(obj) {
+        // Handle the 3 simple types, and null or undefined
+        if (null == obj || "object" != typeof obj) return obj;
+
+        // Handle Date
+        if (obj instanceof Date) {
+            var copy = new Date();
+            copy.setTime(obj.getTime());
+            return copy;
+        }
+
+        // Handle Array
+        if (obj instanceof Array) {
+            let copy = [];
+            for (let i = 0, len = obj.length; i < len; i++) {
+                copy[i] = clone(obj[i]);
+            }
+            return copy;
+        }
+
+        // Handle Object
+        if (obj instanceof Object) {
+            let copy = {};
+            for (let attr in obj) {
+                if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
+            }
+            return copy;
+        }
+
+        throw new Error("Unable to copy obj! Its type isn't supported.");
+    }
+
+    function showPopulationInfo() {
+        console.log("\n Start \n");
+        populations.forEach(population => {
+            console.log("Populacja z rate " + population.rate);
+            population.rectangles.forEach(el => {
+                console.log("Prostokat z typem ", el.production + " color " + el.color);
+                el.smallRectangles.forEach(smallEl => {
+                    console.log("small rect " + smallEl.x + " " + smallEl.y)
+                })
+            })
+        })
+    }
+
+</script>
+</body>
+</html>

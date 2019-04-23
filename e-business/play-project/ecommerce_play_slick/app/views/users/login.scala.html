@@ -1,0 +1,19 @@
+@(user: Form[LoginUserForm])(implicit request: MessagesRequestHeader)
+
+@import helper._
+
+@request.flash.get("success").map { key =>
+    @request.messages(key)
+}
+
+@main("Shop login") {
+    @form(routes.UsersController.getUsers()) {
+        @inputText(user("email"))
+        @inputText(user("password"))
+        @CSRF.formField
+
+        <div class="buttons">
+            <input type="submit" value="Login"/>
+        </div>
+    }
+}

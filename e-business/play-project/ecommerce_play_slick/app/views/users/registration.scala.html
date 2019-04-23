@@ -1,0 +1,25 @@
+@(user: Form[RegistrationUserForm])(implicit request: MessagesRequestHeader)
+
+@import helper._
+
+@request.flash.get("success").map { key =>
+    @request.messages(key)
+}
+
+@main("Shop registration") {
+    @form(routes.UsersController.add()) {
+        @inputText(user("name"))
+        @inputText(user("password"))
+        @inputText(user("email"))
+        @inputText(user("country"))
+        @inputText(user("street"))
+        @inputText(user("city"))
+        @inputText(user("address"))
+        @inputText(user("postal"))
+        @CSRF.formField
+
+        <div class="buttons">
+            <input type="submit" value="Registration"/>
+        </div>
+    }
+}

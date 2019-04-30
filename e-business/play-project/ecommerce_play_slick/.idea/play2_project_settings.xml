@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Play2ExcludedModulesSettings">
+    <option name="INFO">
+      <map>
+        <entry key="ecommerce_play_slick">
+          <value>
+            <ProjectSettingsEntry>
+              <option name="sourceDir" value="D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\.idea\modules\app" />
+              <option name="confDir" value="D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\.idea\modules\app" />
+              <option name="playDistrPath" value="$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/jars/play_2.12-2.7.0.jar" />
+              <option name="templateImports">
+                <list>
+                  <option value="models._" />
+                  <option value="controllers._" />
+                  <option value="play.api.i18n._" />
+                  <option value="views.xml._" />
+                  <option value="play.api.templates.PlayMagic._" />
+                  <option value="java.lang._" />
+                  <option value="java.util._" />
+                  <option value="scala.collection.JavaConversions._" />
+                  <option value="scala.collection.JavaConverters._" />
+                  <option value="play.core.j.PlayMagicForJava._" />
+                  <option value="play.mvc._" />
+                  <option value="play.data._" />
+                  <option value="play.api.data.Field" />
+                  <option value="play.mvc.Http.Context.Implicit._" />
+                </list>
+              </option>
+              <option name="routesImports">
+                <list>
+                  <option value="controllers.Assets.Asset" />
+                  <option value="play.libs.F" />
+                </list>
+              </option>
+              <option name="uri" value="/D:/kamil/Studia%204%20rok/2%20semestr/e-business/Study-master/e-business/play-project/ecommerce_play_slick/.idea/modules" />
+            </ProjectSettingsEntry>
+          </value>
+        </entry>
+        <entry key="play-scala-slick-example">
+          <value>
+            <ProjectSettingsEntry>
+              <option name="playDistrPath" value="$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/jars/play_2.12-2.7.0.jar" />
+            </ProjectSettingsEntry>
+          </value>
+        </entry>
+        <entry key="root">
+          <value>
+            <ProjectSettingsEntry>
+              <option name="sourceDir" value="D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app" />
+              <option name="confDir" value="D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app" />
+              <option name="templateImports">
+                <list>
+                  <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
+                  <option value="_root_.play.twirl.api.TwirlHelperImports._" />
+                  <option value="_root_.play.twirl.api.Html" />
+                  <option value="_root_.play.twirl.api.JavaScript" />
+                  <option value="_root_.play.twirl.api.Txt" />
+                  <option value="_root_.play.twirl.api.Xml" />
+                  <option value="models._" />
+                  <option value="controllers._" />
+                  <option value="play.api.i18n._" />
+                  <option value="views.xml._" />
+                  <option value="play.api.templates.PlayMagic._" />
+                  <option value="play.api.mvc._" />
+                  <option value="play.api.data._" />
+                </list>
+              </option>
+              <option name="routesImports">
+                <list>
+                  <option value="controllers.Assets.Asset" />
+                </list>
+              </option>
+              <option name="uri" value="/D:/kamil/Studia%204%20rok/2%20semestr/e-business/Study-master/e-business/play-project/ecommerce_play_slick" />
+            </ProjectSettingsEntry>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

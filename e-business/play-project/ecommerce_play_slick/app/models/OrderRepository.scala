@@ -56,4 +56,8 @@ class OrderRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,  user
     order.result
   }
 
+  def getById(order_id: Long): Future[Seq[Order]] = db.run {
+    order.filter(_.id === order_id).result
+  }
+
 }

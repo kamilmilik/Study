@@ -29,7 +29,11 @@ class CategoriesController @Inject()(categoryRepo: CategoryRepository,cc : Messa
     Ok(views.html.categories.add_category(categoryForm))
   }
 
-  def getById(id: String) = Action { Ok("") }
+  def getById(id: Int) = Action.async { implicit  request =>
+    categoryRepo.getById(id).map { order =>
+      Ok(Json.toJson(order))
+    }
+  }
 
   def add = Action.async { implicit request =>
     categoryForm.bindFromRequest.fold(

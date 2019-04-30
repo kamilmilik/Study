@@ -87,9 +87,13 @@ class UsersController @Inject()(repo: UserRepository,
     }
   }
 
-  def getById(id: String) = Action { Ok("") }
+  def getById(id: Long) = Action.async { implicit  request =>
+    repo.getById(id).map { user =>
+      Ok(Json.toJson(user))
+    }
+  }
 
-  def update(id: String) = Action { Ok("") }
+  def update(id: Long) = Action { Ok("") }
 }
 
 case class RegistrationUserForm(name: String, password: String,  email: String,

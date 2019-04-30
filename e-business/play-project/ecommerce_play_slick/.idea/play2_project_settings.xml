@@ -48,7 +48,7 @@
           <value>
             <ProjectSettingsEntry>
               <option name="sourceDir" value="D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app" />
-              <option name="confDir" value="D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app" />
+              <option name="confDir" value="D:\kamil\pobraneZChrome\temp\git_repo\e-business\play-project\ecommerce_play_slick\app" />
               <option name="templateImports">
                 <list>
                   <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
@@ -71,7 +71,7 @@
                   <option value="controllers.Assets.Asset" />
                 </list>
               </option>
-              <option name="uri" value="/D:/kamil/Studia%204%20rok/2%20semestr/e-business/Study-master/e-business/play-project/ecommerce_play_slick" />
+              <option name="uri" value="/D:/kamil/pobraneZChrome/temp/git_repo/e-business/play-project/ecommerce_play_slick" />
             </ProjectSettingsEntry>
           </value>
         </entry>

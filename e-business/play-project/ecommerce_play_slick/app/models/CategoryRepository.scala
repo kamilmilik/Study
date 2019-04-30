@@ -62,4 +62,8 @@ class CategoryRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(im
   def list(): Future[Seq[Category]] = db.run {
     category.result
   }
+
+  def getById(category_id: Int): Future[Seq[Category]] = db.run {
+    category.filter(_.id === category_id).result
+  }
 }

@@ -79,20 +79,25 @@ class ProductsController @Inject()(productsRepo: ProductRepository, categoryRepo
     )
   }
 
-//
-//  def getByCategory(id: Integer) = Action.async { implicit  request =>
-//    productsRepo.getByCategory(id).map { products =>
-//      Ok(Json.toJson(products))
-//    }
-//  }
-//
-//  def getByCategories = Action.async { implicit  request =>
-//    val categories: List[Int] = List(1,2,3)
-//
-//    productsRepo.getByCategories(categories).map { products =>
-//      Ok(Json.toJson(products))
-//    }
-//  }
+  def getById(id: Long) = Action.async { implicit  request =>
+    productsRepo.getById(id).map { products =>
+      Ok(Json.toJson(products))
+    }
+  }
+
+  def getByCategory(id: Integer) = Action.async { implicit  request =>
+    productsRepo.getByCategory(id).map { products =>
+      Ok(Json.toJson(products))
+    }
+  }
+
+  def getByCategories = Action.async { implicit  request =>
+    val categories: List[Int] = List(1,2,3)
+
+    productsRepo.getByCategories(categories).map { products =>
+      Ok(Json.toJson(products))
+    }
+  }
 //
 //  def handlePost = Action.async { implicit request =>
 //    val name = request.body.asJson.get("name").as[String]

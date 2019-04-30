@@ -74,29 +74,12 @@ class OrdersController @Inject()(orderRepo: OrderRepository, userRepo: UserRepos
     )
   }
 
-  //
-  //  def getByCategory(id: Integer) = Action.async { implicit  request =>
-  //    productsRepo.getByCategory(id).map { products =>
-  //      Ok(Json.toJson(products))
-  //    }
-  //  }
-  //
-  //  def getByCategories = Action.async { implicit  request =>
-  //    val categories: List[Int] = List(1,2,3)
-  //
-  //    productsRepo.getByCategories(categories).map { products =>
-  //      Ok(Json.toJson(products))
-  //    }
-  //  }
-  //
-  //  def handlePost = Action.async { implicit request =>
-  //    val name = request.body.asJson.get("name").as[String]
-  //    val desc = request.body.asJson.get("description").as[String]
-  //
-  //    productsRepo.create(name,desc,1).map { product =>
-  //      Ok(Json.toJson(product))
-  //    }
-  //  }
+    def getById(id: Long) = Action.async { implicit  request =>
+      orderRepo.getById(id).map { order =>
+        Ok(Json.toJson(order))
+      }
+    }
+
 
   def update(id: String) = Action { Ok("") }
 

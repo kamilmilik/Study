@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4db1adbd-1797-4e56-a1a7-ad8f6c386c12" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/play2_project_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_project_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="4db1adbd-1797-4e56-a1a7-ad8f6c386c12" name="Default Changelist" comment="Add get by id in controllers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/CategoriesController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CategoriesController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/OrdersController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/OrdersController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ProductController.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ProductsController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProductsController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/UsersController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UsersController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/CategoryRepository.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/CategoryRepository.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/OrderRepository.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/OrderRepository.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ProductRepository.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProductRepository.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/UserRepository.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/UserRepository.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/data.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$0c33fcbc85da3a9f2c81$.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$0c33fcbc85da3a9f2c81.cache" beforeDir="false" />
@@ -75,11 +66,31 @@
       <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/exportedProducts/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/exportedProducts/$global/streams/export" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/$global/streams/export" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/internalDependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/internalDependencyClasspath/$global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CategoriesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CategoriesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CreateCategoryForm$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CreateCategoryForm$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CreateCategoryForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CreateCategoryForm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CreateOrderForm$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CreateOrderForm$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CreateOrderForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CreateOrderForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CreateProductForm$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CreateProductForm$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CreateProductForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CreateProductForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/LoginUserForm$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/LoginUserForm$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/LoginUserForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/LoginUserForm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/OrdersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/OrdersController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/ProductsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/ProductsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/RegistrationUserForm$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/RegistrationUserForm$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/RegistrationUserForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/RegistrationUserForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/ReverseCategoriesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/ReverseCategoriesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/ReverseUsersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/ReverseUsersController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/UsersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/UsersController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/javascript/ReverseCategoriesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/javascript/ReverseCategoriesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/javascript/ReverseUsersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/javascript/ReverseUsersController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/CategoryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/CategoryRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/OrderRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/OrderRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/ProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/router/Routes$$anonfun$routes$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/router/Routes$$anonfun$routes$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/router/Routes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/router/Routes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/routes" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/routes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/categories/add_category.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/categories/add_category.scala.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/play-scala-slick-example/play-scala-slick-example$sources/2.7.x/resolved.xml.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/play-scala-slick-example/play-scala-slick-example$sources/2.7.x/resolved.xml.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/play-scala-slick-example/play-scala-slick-example$sources/2.7.x/resolved.xml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/play-scala-slick-example/play-scala-slick-example$sources/2.7.x/resolved.xml.xml" afterDir="false" />
@@ -231,7 +242,7 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/OrdersController.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-4">
-              <caret line="64" column="9" lean-forward="true" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+              <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
               <folding>
                 <element signature="e#21#43#0" expanded="true" />
               </folding>
@@ -240,19 +251,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/routes">
+        <entry file="file://$PROJECT_DIR$/conf/evolutions/default/1.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+            <state relative-caret-position="118">
+              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/CategoryRepository.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="67" column="3" selection-start-line="67" selection-start-column="3" selection-end-line="67" selection-end-column="3" />
+              <folding>
+                <element signature="e#16#42#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/conf/routes">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="28" column="83" selection-start-line="28" selection-start-column="83" selection-end-line="28" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/ProductsController.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="86" column="2" lean-forward="true" selection-start-line="86" selection-start-column="2" selection-end-line="86" selection-end-column="2" />
+            <state relative-caret-position="141">
+              <caret line="68" column="55" selection-start-line="68" selection-start-column="55" selection-end-line="68" selection-end-column="55" />
               <folding>
                 <element signature="e#21#47#0" expanded="true" />
               </folding>
@@ -315,7 +347,6 @@
         <option value="$PROJECT_DIR$/app/views/products/add_product.scala.html" />
         <option value="$PROJECT_DIR$/app/views/categories/add_category.scala.html" />
         <option value="$PROJECT_DIR$/app/models/Order.scala" />
-        <option value="$PROJECT_DIR$/conf/routes" />
         <option value="$PROJECT_DIR$/app/controllers/PersonController.scala" />
         <option value="$PROJECT_DIR$/app/views/order/add_order.scala.html" />
         <option value="$PROJECT_DIR$/conf/application.conf" />
@@ -324,10 +355,11 @@
         <option value="$PROJECT_DIR$/app/controllers/OrdersController.scala" />
         <option value="$PROJECT_DIR$/app/models/UserRepository.scala" />
         <option value="$PROJECT_DIR$/app/controllers/UsersController.scala" />
-        <option value="$PROJECT_DIR$/app/models/CategoryRepository.scala" />
         <option value="$PROJECT_DIR$/app/controllers/CategoriesController.scala" />
         <option value="$PROJECT_DIR$/app/models/ProductRepository.scala" />
         <option value="$PROJECT_DIR$/app/controllers/ProductsController.scala" />
+        <option value="$PROJECT_DIR$/app/models/CategoryRepository.scala" />
+        <option value="$PROJECT_DIR$/conf/routes" />
       </list>
     </option>
   </component>
@@ -379,6 +411,17 @@
               <item name="ecommerce_play_slick" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="play-scala-slick-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ecommerce_play_slick" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="play-scala-slick-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ecommerce_play_slick" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="default" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -509,7 +552,7 @@
       <workItem from="1556616533379" duration="8756000" />
       <workItem from="1556632903338" duration="1036000" />
       <workItem from="1556633982557" duration="2010000" />
-      <workItem from="1556655766331" duration="1115000" />
+      <workItem from="1556655766331" duration="2352000" />
     </task>
     <task id="LOCAL-00001" summary="Add project">
       <created>1556049700558</created>
@@ -532,17 +575,24 @@
       <option name="project" value="LOCAL" />
       <updated>1556609712607</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add get by id in controllers">
+      <created>1556657150581</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556657150581</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55816000" />
+    <option name="totallyTimeSpent" value="57053000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.43431637" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.43431637" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -551,7 +601,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4953083" visible="true" weight="0.291372" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4953083" visible="true" weight="0.291372" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -669,7 +719,8 @@
     </ignored-roots>
     <MESSAGE value="Add project" />
     <MESSAGE value="Add models, controllers, simple forms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add models, controllers, simple forms" />
+    <MESSAGE value="Add get by id in controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add get by id in controllers" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d69dee35-99c3-49a4-8b67-25aefd048776/console.sql">
@@ -857,13 +908,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/evolutions/default/1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ProductController.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
@@ -898,16 +942,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/OrdersController.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="64" column="9" lean-forward="true" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
-          <folding>
-            <element signature="e#21#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/OrderRepository.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -919,16 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/CategoryRepository.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="66" column="40" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
-          <folding>
-            <element signature="e#16#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/CategoriesController.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -936,13 +960,6 @@
           <folding>
             <element signature="e#21#42#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/routes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -960,11 +977,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ProductsController.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="86" column="2" lean-forward="true" selection-start-line="86" selection-start-column="2" selection-end-line="86" selection-end-column="2" />
+        <state relative-caret-position="141">
+          <caret line="68" column="55" selection-start-line="68" selection-start-column="55" selection-end-line="68" selection-end-column="55" />
           <folding>
             <element signature="e#21#47#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/OrdersController.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+          <folding>
+            <element signature="e#21#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/CategoryRepository.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="67" column="3" selection-start-line="67" selection-start-column="3" selection-end-line="67" selection-end-column="3" />
+          <folding>
+            <element signature="e#16#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/evolutions/default/1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/routes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="28" column="83" selection-start-line="28" selection-start-column="83" selection-end-line="28" selection-end-column="83" />
         </state>
       </provider>
     </entry>

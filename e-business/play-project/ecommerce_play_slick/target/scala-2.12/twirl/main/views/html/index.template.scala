@@ -58,8 +58,8 @@ Seq[Any](format.raw/*1.75*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 30 10:38:37 CEST 2019
-                  SOURCE: D:/kamil/Studia 4 rok/2 semestr/e-business/Study-master/e-business/play-project/ecommerce_play_slick/app/views/index.scala.html
+                  DATE: Sun May 19 15:02:19 CEST 2019
+                  SOURCE: D:/kamil/pobraneZChrome/temp/git_repo/e-business/play-project/ecommerce_play_slick/app/views/index.scala.html
                   HASH: b0b89c78e1b1e12d0cde79e05734f6d4d39f38f3
                   MATRIX: 767->1|913->79|958->74|988->96|1016->99|1030->106|1063->131|1109->140|1140->146|1155->153|1189->167|1221->170|1251->175|1271->187|1310->189|1341->194|1391->235|1431->237|1462->242|1508->267|1539->272|1584->296|1615->301|1627->305|1658->315|1691->321|1802->402|1835->405
                   LINES: 21->1|24->3|27->1|29->4|30->5|30->5|30->5|30->5|31->6|31->6|31->6|32->7|34->9|34->9|34->9|35->10|35->10|35->10|36->11|36->11|37->12|37->12|38->13|38->13|38->13|40->15|43->18|44->19

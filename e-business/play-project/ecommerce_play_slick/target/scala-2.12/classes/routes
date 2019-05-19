@@ -12,7 +12,7 @@ GET         /assets/*file          controllers.Assets.versioned(path="/public", 
 
 
 GET         /products              controllers.ProductsController.get
-GET         /add_product            controllers.ProductsController.addProductForm
+GET         /add_product           controllers.ProductsController.addProductForm
 POST        /products              controllers.ProductsController.add
 GET         /products/:id          controllers.ProductsController.getById(id)
 PUT         /products/:id          controllers.ProductsController.update(id)
@@ -26,12 +26,12 @@ PUT         /orders/:id            controllers.OrdersController.update(id)
 GET         /add_category            controllers.CategoriesController.addCategoryForm
 GET         /categories            controllers.CategoriesController.get
 POST        /categories            controllers.CategoriesController.add
-GET         /categories/:id        controllers.CategoriesController.getById(id)
+GET         /categories/:id        controllers.CategoriesController.getById(id: Int)
 PUT         /categories/:id        controllers.CategoriesController.update(id)
 
 GET         /registration          controllers.UsersController.registration
 GET         /login                 controllers.UsersController.login
 POST        /users                 controllers.UsersController.add
 GET         /users                 controllers.UsersController.getUsers
-GET         /users/:id             controllers.UsersController.getById(id)
-PUT         /users/:id             controllers.UsersController.update(id)
+GET         /users/:id             controllers.UsersController.getById(id: Long)
+PUT         /users/:id             controllers.UsersController.update(id: Long)

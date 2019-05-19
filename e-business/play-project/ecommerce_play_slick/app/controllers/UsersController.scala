@@ -21,6 +21,7 @@ class UsersController @Inject()(repo: UserRepository,
   /**
     * The mapping for the person form.
     */
+    // metoda post musi ma parametry takie jak tutaj w mapping, dodatkowo to co w mapping musi sie zgadzac z tym co jest w html pliku w inputText
   val userRegistrationForm: Form[RegistrationUserForm] = Form {
     mapping(
       "name" -> nonEmptyText,

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:D:/kamil/Studia 4 rok/2 semestr/e-business/Study-master/e-business/play-project/ecommerce_play_slick/conf/routes
-// @DATE:Tue Apr 30 16:25:13 CEST 2019
+// @SOURCE:D:/kamil/pobraneZChrome/temp/git_repo/e-business/play-project/ecommerce_play_slick/conf/routes
+// @DATE:Sun May 19 18:05:16 CEST 2019
 
 import play.api.mvc.Call
 
@@ -65,6 +65,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "add_category")
     }
   
+    // @LINE:29
+    def getById(id:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "categories/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Int]].unbind("id", id)))
+    }
+  
     // @LINE:28
     def add(): Call = {
       
@@ -75,12 +81,6 @@ package controllers {
     def get(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "categories")
-    }
-  
-    // @LINE:29
-    def getById(id:String): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "categories/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
     // @LINE:30
@@ -104,6 +104,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "users")
     }
   
+    // @LINE:37
+    def update(id:Long): Call = {
+      
+      Call("PUT", _prefix + { _defaultPrefix } + "users/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
+  
     // @LINE:32
     def registration(): Call = {
       
@@ -117,15 +123,9 @@ package controllers {
     }
   
     // @LINE:36
-    def getById(id:String): Call = {
+    def getById(id:Long): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "users/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
-    }
-  
-    // @LINE:37
-    def update(id:String): Call = {
-      
-      Call("PUT", _prefix + { _defaultPrefix } + "users/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+      Call("GET", _prefix + { _defaultPrefix } + "users/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
     // @LINE:33

@@ -21,9 +21,9 @@ class OrdersController @Inject()(orderRepo: OrderRepository, userRepo: UserRepos
 
   val orderForm: Form[CreateOrderForm] = Form {
     mapping(
-      "user id" -> number,
-      "order date" -> nonEmptyText,
-      "order address" -> nonEmptyText
+      "user_id" -> number,
+      "order_date" -> nonEmptyText,
+      "order_address" -> nonEmptyText
     )(CreateOrderForm.apply)(CreateOrderForm.unapply)
   }
 

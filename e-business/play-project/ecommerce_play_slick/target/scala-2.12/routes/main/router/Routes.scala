@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:D:/kamil/Studia 4 rok/2 semestr/e-business/Study-master/e-business/play-project/ecommerce_play_slick/conf/routes
-// @DATE:Tue Apr 30 16:25:13 CEST 2019
+// @SOURCE:D:/kamil/pobraneZChrome/temp/git_repo/e-business/play-project/ecommerce_play_slick/conf/routes
+// @DATE:Sun May 19 18:05:16 CEST 2019
 
 package router
 
@@ -72,14 +72,14 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """add_category""", """controllers.CategoriesController.addCategoryForm"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """categories""", """controllers.CategoriesController.get"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """categories""", """controllers.CategoriesController.add"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """categories/""" + "$" + """id<[^/]+>""", """controllers.CategoriesController.getById(id:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """categories/""" + "$" + """id<[^/]+>""", """controllers.CategoriesController.getById(id:Int)"""),
     ("""PUT""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """categories/""" + "$" + """id<[^/]+>""", """controllers.CategoriesController.update(id:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registration""", """controllers.UsersController.registration"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.UsersController.login"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users""", """controllers.UsersController.add"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users""", """controllers.UsersController.getUsers"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/""" + "$" + """id<[^/]+>""", """controllers.UsersController.getById(id:String)"""),
-    ("""PUT""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/""" + "$" + """id<[^/]+>""", """controllers.UsersController.update(id:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/""" + "$" + """id<[^/]+>""", """controllers.UsersController.getById(id:Long)"""),
+    ("""PUT""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/""" + "$" + """id<[^/]+>""", """controllers.UsersController.update(id:Long)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -398,12 +398,12 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("categories/"), DynamicPart("id", """[^/]+""",true)))
   )
   private[this] lazy val controllers_CategoriesController_getById17_invoker = createInvoker(
-    CategoriesController_3.getById(fakeValue[String]),
+    CategoriesController_3.getById(fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.CategoriesController",
       "getById",
-      Seq(classOf[String]),
+      Seq(classOf[Int]),
       "GET",
       this.prefix + """categories/""" + "$" + """id<[^/]+>""",
       """""",
@@ -506,12 +506,12 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/"), DynamicPart("id", """[^/]+""",true)))
   )
   private[this] lazy val controllers_UsersController_getById23_invoker = createInvoker(
-    UsersController_2.getById(fakeValue[String]),
+    UsersController_2.getById(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UsersController",
       "getById",
-      Seq(classOf[String]),
+      Seq(classOf[Long]),
       "GET",
       this.prefix + """users/""" + "$" + """id<[^/]+>""",
       """""",
@@ -524,12 +524,12 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/"), DynamicPart("id", """[^/]+""",true)))
   )
   private[this] lazy val controllers_UsersController_update24_invoker = createInvoker(
-    UsersController_2.update(fakeValue[String]),
+    UsersController_2.update(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UsersController",
       "update",
-      Seq(classOf[String]),
+      Seq(classOf[Long]),
       "PUT",
       this.prefix + """users/""" + "$" + """id<[^/]+>""",
       """""",
@@ -644,7 +644,7 @@ class Routes(
   
     // @LINE:29
     case controllers_CategoriesController_getById17_route(params@_) =>
-      call(params.fromPath[String]("id", None)) { (id) =>
+      call(params.fromPath[Int]("id", None)) { (id) =>
         controllers_CategoriesController_getById17_invoker.call(CategoriesController_3.getById(id))
       }
   
@@ -680,13 +680,13 @@ class Routes(
   
     // @LINE:36
     case controllers_UsersController_getById23_route(params@_) =>
-      call(params.fromPath[String]("id", None)) { (id) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_UsersController_getById23_invoker.call(UsersController_2.getById(id))
       }
   
     // @LINE:37
     case controllers_UsersController_update24_route(params@_) =>
-      call(params.fromPath[String]("id", None)) { (id) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_UsersController_update24_invoker.call(UsersController_2.update(id))
       }
   }

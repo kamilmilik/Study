@@ -56,8 +56,8 @@ Seq[Any](format.raw/*1.79*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 30 15:25:42 CEST 2019
-                  SOURCE: D:/kamil/Studia 4 rok/2 semestr/e-business/Study-master/e-business/play-project/ecommerce_play_slick/app/views/categories/add_category.scala.html
+                  DATE: Tue Apr 30 22:24:11 CEST 2019
+                  SOURCE: D:/kamil/pobraneZChrome/temp/git_repo/e-business/play-project/ecommerce_play_slick/app/views/categories/add_category.scala.html
                   HASH: 376ba6bc9303cf0130bebec936203a27afce8a27
                   MATRIX: 787->1|937->83|982->78|1012->100|1040->103|1054->110|1087->135|1133->144|1165->151|1180->158|1214->172|1246->175|1276->180|1305->201|1344->203|1377->210|1425->249|1465->251|1503->262|1551->289|1589->300|1602->304|1633->314|1672->326|1803->427
                   LINES: 21->1|24->3|27->1|29->4|30->5|30->5|30->5|30->5|31->6|31->6|31->6|32->7|34->9|34->9|34->9|35->10|35->10|35->10|36->11|36->11|37->12|37->12|37->12|39->14|42->17

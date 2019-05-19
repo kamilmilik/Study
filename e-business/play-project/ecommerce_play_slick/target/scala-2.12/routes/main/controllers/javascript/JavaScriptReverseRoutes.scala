@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:D:/kamil/Studia 4 rok/2 semestr/e-business/Study-master/e-business/play-project/ecommerce_play_slick/conf/routes
-// @DATE:Tue Apr 30 16:25:13 CEST 2019
+// @SOURCE:D:/kamil/pobraneZChrome/temp/git_repo/e-business/play-project/ecommerce_play_slick/conf/routes
+// @DATE:Sun May 19 18:05:16 CEST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -88,6 +88,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:29
+    def getById: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CategoriesController.getById",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "categories/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Int]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
     // @LINE:28
     def add: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CategoriesController.add",
@@ -104,16 +114,6 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "categories"})
-        }
-      """
-    )
-  
-    // @LINE:29
-    def getById: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.CategoriesController.getById",
-      """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "categories/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
@@ -148,6 +148,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:37
+    def update: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UsersController.update",
+      """
+        function(id0) {
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "users/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
     // @LINE:32
     def registration: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsersController.registration",
@@ -173,17 +183,7 @@ package controllers.javascript {
       "controllers.UsersController.getById",
       """
         function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
-        }
-      """
-    )
-  
-    // @LINE:37
-    def update: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.UsersController.update",
-      """
-        function(id0) {
-          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "users/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )

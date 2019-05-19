@@ -34,9 +34,9 @@ Seq[Any](format.raw/*2.90*/("""
 
 """),_display_(/*10.2*/main("Shop add order")/*10.24*/ {_display_(Seq[Any](format.raw/*10.26*/("""
     """),_display_(/*11.6*/form(routes.OrdersController.add())/*11.41*/ {_display_(Seq[Any](format.raw/*11.43*/("""
-        """),_display_(/*12.10*/inputText(order("user id"))),format.raw/*12.37*/("""
-        """),_display_(/*13.10*/inputText(order("order date"))),format.raw/*13.40*/("""
-        """),_display_(/*14.10*/inputText(order("order address"))),format.raw/*14.43*/("""
+        """),_display_(/*12.10*/inputText(order("user_id"))),format.raw/*12.37*/("""
+        """),_display_(/*13.10*/inputText(order("order_date"))),format.raw/*13.40*/("""
+        """),_display_(/*14.10*/inputText(order("order_address"))),format.raw/*14.43*/("""
         """),_display_(/*15.10*/CSRF/*15.14*/.formField),format.raw/*15.24*/("""
 
 
@@ -66,9 +66,9 @@ Seq[Any](format.raw/*2.90*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 30 16:30:46 CEST 2019
-                  SOURCE: D:/kamil/Studia 4 rok/2 semestr/e-business/Study-master/e-business/play-project/ecommerce_play_slick/app/views/order/add_order.scala.html
-                  HASH: 7943090dd1ab755ead620562c9ed9c10dfc22934
+                  DATE: Sun May 19 19:28:08 CEST 2019
+                  SOURCE: D:/kamil/pobraneZChrome/temp/git_repo/e-business/play-project/ecommerce_play_slick/app/views/order/add_order.scala.html
+                  HASH: 5e66a9abb421e3e13b58b4dd0d09f7fb7ae0bdcd
                   MATRIX: 438->1|816->26|977->119|1022->114|1052->136|1080->139|1094->146|1127->171|1173->180|1205->187|1220->194|1254->208|1286->211|1317->216|1348->238|1388->240|1421->247|1465->282|1505->284|1543->295|1591->322|1629->333|1680->363|1718->374|1772->407|1810->418|1823->422|1854->432|1888->488|1918->524|1948->584|1978->599|2008->622|2047->634|2175->732
                   LINES: 17->1|22->2|25->4|28->2|30->5|31->6|31->6|31->6|31->6|32->7|32->7|32->7|33->8|35->10|35->10|35->10|36->11|36->11|36->11|37->12|37->12|38->13|38->13|39->14|39->14|40->15|40->15|40->15|43->18|44->19|45->20|46->21|47->22|49->24|52->27
                   -- GENERATED --

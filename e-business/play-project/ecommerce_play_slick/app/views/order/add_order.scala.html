@@ -9,9 +9,9 @@
 
 @main("Shop add order") {
     @form(routes.OrdersController.add()) {
-        @inputText(order("user id"))
-        @inputText(order("order date"))
-        @inputText(order("order address"))
+        @inputText(order("user_id"))
+        @inputText(order("order_date"))
+        @inputText(order("order_address"))
         @CSRF.formField
 
 

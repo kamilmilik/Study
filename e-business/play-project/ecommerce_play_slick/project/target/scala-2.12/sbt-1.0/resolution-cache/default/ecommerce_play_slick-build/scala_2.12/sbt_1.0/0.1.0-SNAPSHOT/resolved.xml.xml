@@ -4,7 +4,7 @@
 		module="ecommerce_play_slick-build"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20190430162452"
+		publication="20190519142347"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>

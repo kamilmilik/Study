@@ -12,7 +12,7 @@ GET         /assets/*file          controllers.Assets.versioned(path="/public", 
 
 
 GET         /products              controllers.ProductsController.get
-GET         /add_product            controllers.ProductsController.addProductForm
+GET         /add_product           controllers.ProductsController.addProductForm
 POST        /products              controllers.ProductsController.add
 GET         /products/:id          controllers.ProductsController.getById(id)
 PUT         /products/:id          controllers.ProductsController.update(id)

@@ -1,48 +1,13 @@
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:31:39: private value dbConfig escapes its defining scope as part of type UserRepository.this.dbConfig.profile.api.Table[app.models.User]
-[error]    class UsersTable(tag: Tag) extends Table[User](tag, "user") {
-[error]                                       ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\OrderRepository.scala:42:22: type arguments [OrderRepository.this.userRepository.UsersTable] conform to the bounds of none of the overloaded alternatives of
-[error]  value apply: [E <: slick.lifted.AbstractTable[_]]=> slick.lifted.TableQuery[E] <and> [E <: slick.lifted.AbstractTable[_]](cons: slick.lifted.Tag => E)slick.lifted.TableQuery[E]
-[error]   private val user = TableQuery[UsersTable]
-[error]                      ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:31:51: no arguments allowed for nullary constructor Object: ()Object
-[error]    class UsersTable(tag: Tag) extends Table[User](tag, "user") {
-[error]                                                   ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:34:14: not found: value column
-[error]     def id = column[Long]("user_id", O.PrimaryKey, O.AutoInc)
-[error]              ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:34:38: not found: value O
-[error]     def id = column[Long]("user_id", O.PrimaryKey, O.AutoInc)
-[error]                                      ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:34:52: not found: value O
-[error]     def id = column[Long]("user_id", O.PrimaryKey, O.AutoInc)
-[error]                                                    ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:36:16: not found: value column
-[error]     def name = column[String]("user_name")
-[error]                ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:38:20: not found: value column
-[error]     def password = column[String]("user_password")
-[error]                    ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:40:17: not found: value column
-[error]     def email = column[String]("user_email")
-[error]                 ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:42:19: not found: value column
-[error]     def country = column[String]("user_country")
-[error]                   ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:44:18: not found: value column
-[error]     def street = column[String]("user_street")
-[error]                  ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:46:16: not found: value column
-[error]     def city = column[String]("user_city")
-[error]                ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:48:19: not found: value column
-[error]     def address = column[String]("user_address")
-[error]                   ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:50:18: not found: value column
-[error]     def postal = column[String]("user_postal")
-[error]                  ^
-[error] D:\kamil\Studia 4 rok\2 semestr\e-business\Study-master\e-business\play-project\ecommerce_play_slick\app\models\UserRepository.scala:69:23: type arguments [UserRepository.this.UsersTable] conform to the bounds of none of the overloaded alternatives of
-[error]  value apply: [E <: slick.lifted.AbstractTable[_]]=> slick.lifted.TableQuery[E] <and> [E <: slick.lifted.AbstractTable[_]](cons: slick.lifted.Tag => E)slick.lifted.TableQuery[E]
-[error]   private val users = TableQuery[UsersTable]
-[error]                       ^
-[error] 15 errors found
+[error] D:\kamil\pobraneZChrome\temp\git_repo\e-business\play-project\ecommerce_play_slick\conf\routes:29:1: type mismatch;
+[error]  found   : String
+[error]  required: Int
+[error] GET         /categories/:id        controllers.CategoriesController.getById(id)
+[error] D:\kamil\pobraneZChrome\temp\git_repo\e-business\play-project\ecommerce_play_slick\conf\routes:36:1: type mismatch;
+[error]  found   : String
+[error]  required: Long
+[error] GET         /users/:id             controllers.UsersController.getById(id)
+[error] D:\kamil\pobraneZChrome\temp\git_repo\e-business\play-project\ecommerce_play_slick\conf\routes:37:1: type mismatch;
+[error]  found   : String
+[error]  required: Long
+[error] PUT         /users/:id             controllers.UsersController.update(id)
+[error] three errors found

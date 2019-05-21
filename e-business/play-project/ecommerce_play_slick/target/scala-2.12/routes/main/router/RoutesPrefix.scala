@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/kamil/pobraneZChrome/temp/git_repo/e-business/play-project/ecommerce_play_slick/conf/routes
-// @DATE:Sun May 19 18:05:16 CEST 2019
+// @DATE:Tue May 28 18:36:43 CEST 2019
 
 
 package router {

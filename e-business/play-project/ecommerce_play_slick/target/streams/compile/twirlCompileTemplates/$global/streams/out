@@ -1,0 +1,3 @@
+[error] [Error] D:\kamil\pobraneZChrome\temp\git_repo\e-business\play-project\ecommerce_play_slick\app\views\order\add_order_detail.scala.html:22
+[error] }: Expected ')' but found 'EOF'
+[error] (Compile / twirlCompileTemplates) Twirl compilation failed

@@ -2,7 +2,7 @@ package app.models
 
 import play.api.libs.json.Json
 
-case class OrderDetail(id: Int, orderId: Int, productId: Int, orderProductQuantity: Int)
+case class OrderDetail(id: Long, orderId: Long, productId: Long, orderProductQuantity: Int)
 
 object OrderDetail {
   implicit val orderDetailFormat = Json.format[OrderDetail]

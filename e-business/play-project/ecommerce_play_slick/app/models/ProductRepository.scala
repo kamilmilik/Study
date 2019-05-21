@@ -16,7 +16,7 @@ import scala.concurrent.{ExecutionContext, Future}
 @Singleton
 class ProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,  categoryRepository: CategoryRepository)(implicit ec: ExecutionContext) {
   // We want the JdbcProfile for this provider
-  private val dbConfig = dbConfigProvider.get[JdbcProfile]
+  protected val dbConfig = dbConfigProvider.get[JdbcProfile]
 
   val logger: Logger = Logger(this.getClass())
 

@@ -1,13 +1,4 @@
-[error] D:\kamil\pobraneZChrome\temp\git_repo\e-business\play-project\ecommerce_play_slick\conf\routes:29:1: type mismatch;
-[error]  found   : String
-[error]  required: Int
-[error] GET         /categories/:id        controllers.CategoriesController.getById(id)
-[error] D:\kamil\pobraneZChrome\temp\git_repo\e-business\play-project\ecommerce_play_slick\conf\routes:36:1: type mismatch;
-[error]  found   : String
-[error]  required: Long
-[error] GET         /users/:id             controllers.UsersController.getById(id)
-[error] D:\kamil\pobraneZChrome\temp\git_repo\e-business\play-project\ecommerce_play_slick\conf\routes:37:1: type mismatch;
-[error]  found   : String
-[error]  required: Long
-[error] PUT         /users/:id             controllers.UsersController.update(id)
-[error] three errors found
+[error] D:\kamil\pobraneZChrome\temp\git_repo\e-business\play-project\ecommerce_play_slick\app\models\OrderRepository.scala:35:9: private value userRepository escapes its defining scope as part of type slick.lifted.ForeignKeyQuery[OrderRepository.this.userRepository.UsersTable,app.models.User]
+[error]     def user_fk = foreignKey("user_fk",user_id, user)(_.id)
+[error]         ^
+[error] one error found

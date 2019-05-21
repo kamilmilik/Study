@@ -1,0 +1,22 @@
+@import app.models.Order
+@import app.models.Product
+@(orderDetail: Form[CreateOrderDetailForm], order: Seq[Order])(implicit request: MessagesRequestHeader)
+
+@import helper._
+
+@request.flash.get("success").map { key =>
+    @request.messages(key)
+}
+
+@main("Shop add order detail") {
+    @form(routes.OrdersDetailController.add()) {
+        @inputText(orderDetail("order_id"))
+        @inputText(orderDetail("product_id"))
+        @inputText(orderDetail("order_product_quantity"))
+        @CSRF.formField
+
+        <div class="buttons">
+            <input type="submit" value="add order detail"/>
+        </div>
+    }
+}

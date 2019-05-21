@@ -11,7 +11,7 @@ import scala.concurrent.{ExecutionContext, Future}
 @Singleton
 class OrderRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,  userRepository: UserRepository)(implicit ec: ExecutionContext) {
   // We want the JdbcProfile for this provider
-  private val dbConfig = dbConfigProvider.get[JdbcProfile]
+  protected val dbConfig = dbConfigProvider.get[JdbcProfile]
 
   val logger: Logger = Logger(this.getClass())
 
@@ -21,7 +21,7 @@ class OrderRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,  user
   import profile.api._
   import userRepository.UsersTable
 
-  private class OrderTable(tag: Tag) extends Table[Order](tag, "order") {
+  class OrderTable(tag: Tag) extends Table[Order](tag, "order") {
 
     /** The ID column, which is the primary key, and auto incremented */
     def id = column[Long]("order_id", O.PrimaryKey, O.AutoInc)
@@ -32,7 +32,7 @@ class OrderRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,  user
 
     def order_address = column[String]("order_address")
 
-    def user_fk = foreignKey("user_fk",user_id, user)(_.id)
+//    def user_fk = foreignKey("user_fk",user_id, user)(_.id)
 
     def * = (id, user_id, order_date, order_address) <> ((Order.apply _).tupled, Order.unapply)
   }

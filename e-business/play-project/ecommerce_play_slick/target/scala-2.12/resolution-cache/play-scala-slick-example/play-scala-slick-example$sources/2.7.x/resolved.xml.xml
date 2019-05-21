@@ -4,7 +4,7 @@
 		module="play-scala-slick-example$sources"
 		revision="2.7.x"
 		status="integration"
-		publication="20190430222323"
+		publication="20190528180100"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

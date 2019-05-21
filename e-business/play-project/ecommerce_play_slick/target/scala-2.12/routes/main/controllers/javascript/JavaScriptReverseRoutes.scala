@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/kamil/pobraneZChrome/temp/git_repo/e-business/play-project/ecommerce_play_slick/conf/routes
-// @DATE:Sun May 19 18:05:16 CEST 2019
+// @DATE:Tue May 28 18:36:43 CEST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -70,7 +70,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:26
+  // @LINE:32
   class ReverseCategoriesController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -78,7 +78,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:26
+    // @LINE:32
     def addCategoryForm: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CategoriesController.addCategoryForm",
       """
@@ -88,7 +88,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:29
+    // @LINE:35
     def getById: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CategoriesController.getById",
       """
@@ -98,7 +98,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:28
+    // @LINE:34
     def add: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CategoriesController.add",
       """
@@ -108,7 +108,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
+    // @LINE:33
     def get: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CategoriesController.get",
       """
@@ -118,7 +118,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:30
+    // @LINE:36
     def update: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CategoriesController.update",
       """
@@ -130,7 +130,67 @@ package controllers.javascript {
   
   }
 
-  // @LINE:32
+  // @LINE:26
+  class ReverseOrdersDetailController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:28
+    def add: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.OrdersDetailController.add",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "ordersDetail"})
+        }
+      """
+    )
+  
+    // @LINE:27
+    def get: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.OrdersDetailController.get",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "ordersDetail"})
+        }
+      """
+    )
+  
+    // @LINE:29
+    def getById: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.OrdersDetailController.getById",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "ordersDetail/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:30
+    def update: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.OrdersDetailController.update",
+      """
+        function(id0) {
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "ordersDetail/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:26
+    def addOrderDetailForm: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.OrdersDetailController.addOrderDetailForm",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "add_order_detail"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:38
   class ReverseUsersController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -138,7 +198,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:35
+    // @LINE:41
     def getUsers: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsersController.getUsers",
       """
@@ -148,7 +208,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:37
+    // @LINE:43
     def update: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsersController.update",
       """
@@ -158,7 +218,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:32
+    // @LINE:38
     def registration: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsersController.registration",
       """
@@ -168,7 +228,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:34
+    // @LINE:40
     def add: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsersController.add",
       """
@@ -178,7 +238,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:36
+    // @LINE:42
     def getById: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsersController.getById",
       """
@@ -188,7 +248,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:33
+    // @LINE:39
     def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsersController.login",
       """

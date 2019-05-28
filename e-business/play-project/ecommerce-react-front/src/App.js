@@ -11,9 +11,11 @@ import {
 import Users from './Users'
 import Products from './Products'
 import Orders from "./Orders";
+import OrdersDetail from "./OrdersDetail";
 import Categories from "./Categories";
 import ProductForm from "./ProductForm";
 import OrderForm from "./OrderForm";
+import OrderDetailForm from "./OrderDetailForm";
 import CategoryForm from "./CategoryForm";
 import UserForm from "./UserForm";
 
@@ -32,6 +34,9 @@ class App extends Component {
                         <Link to="/orders">Orders</Link>
                     </li>
                     <li>
+                        <Link to="/ordersDetail">Orders Detail</Link>
+                    </li>
+                    <li>
                         <Link to="/categories">Categories</Link>
                     </li>
                     <li>
@@ -39,6 +44,9 @@ class App extends Component {
                     </li>
                     <li>
                         <Link to="/add_order">Add Order</Link>
+                    </li>
+                    <li>
+                        <Link to="/add_order_detail">Add Order Detail</Link>
                     </li>
                     <li>
                         <Link to="/add_category">Add Category</Link>
@@ -50,9 +58,11 @@ class App extends Component {
                 <Route path="/users" component={Users}/>
                 <Route path="/products" component={Products}/>
                 <Route path="/orders" component={Orders}/>
+                <Route path="/ordersDetail" component={OrdersDetail}/>
                 <Route path="/categories" component={Categories}/>
                 <Route path="/add_product" component={ProductForm}/>
                 <Route path="/add_order" component={OrderForm}/>
+                <Route path="/add_order_detail" component={OrderDetailForm}/>
                 <Route path="/add_category" component={CategoryForm}/>
                 <Route path="/registration" component={UserForm}/>
             </div>
